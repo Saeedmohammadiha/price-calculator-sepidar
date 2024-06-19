@@ -1,6 +1,11 @@
+import { renderCheckboxes } from './chekboxesList';
+import { subSystemsList, systemsList } from './chekboxesList/values';
+import { addOptionsToLockSelect } from './lockSelect';
+import { addOptionsToMobileUsersSelectSelect } from './mobileUsersSelect';
 import { selectSystem } from './selectSystem'
+import { addOptionsToSharedCompaniesSelect } from './sharedCompaniesSelect';
 import './style.css'
-
+import { addOptionsToUsersCountSelect } from './usersCountSelect';
 
 selectSystem()
 
@@ -21,3 +26,10 @@ selectSystem()
 // `
 
 // setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+  // Assuming you have a container with the id 'checkbox-container'
+  renderCheckboxes('systemsListContainer', systemsList);
+  renderCheckboxes('subSystemsListContainer', subSystemsList);
+  addOptionsToLockSelect()
+  addOptionsToUsersCountSelect()
+  addOptionsToSharedCompaniesSelect()
+  addOptionsToMobileUsersSelectSelect()
