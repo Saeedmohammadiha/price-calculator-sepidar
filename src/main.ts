@@ -1,5 +1,8 @@
+import { selectSystem } from './selectSystem'
 import './style.css'
-import { setupCounter } from './counter.ts'
+
+
+selectSystem()
 
 // document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 //   <div>

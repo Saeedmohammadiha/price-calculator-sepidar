@@ -7,15 +7,49 @@
     <title></title>
   </head>
   <body>
-    <div id="app">
-      <div class="container flex gap-5">
-        <div class="selectAndPriceContainer">
-          <div class="selectSystem">
-           
+    <div id="app" class="w-full" dir="rtl">
+      <div class="flex gap-5">
+        <div class="selectAndPriceContainer min-w-[350px] m-3">
+          <div class="selectSystem p-2 border rounded-md">
+            <form class="bg-gray-50 p-1">
+              <label
+                for="countries"
+                class="block text-center mb-2 p-4 bg-green-600 text-sm font-medium rounded-md text-white"
+                >Select an option</label
+              >
+
+              <select
+                onchange="selectOnChangeHandler()"
+                id="systemsSelect"
+                class="border text-gray-900 text-sm rounded-md block w-full p-4"
+              ></select>
+            </form>
           </div>
-          <div class="priceResult"></div>
+          <div class="priceResult mt-3">
+            <div class="bg-gray-400 rounded-md p-2">
+              <div class="holePrice flex justify-between">
+                <div>قیمت کل:</div>
+                <div>231321</div>
+              </div>
+              <div class="discount"></div>
+            </div>
+          </div>
         </div>
-        <div class="systemsContainer ">systemsContainer</div>
+        <div class="systemsContainer flex-1">
+          <div class="list">
+            <div class="item flex justify-between  p-2 bg-gray-400 rounded-md">
+              <label>
+                <input
+                  type="checkbox"
+                  checked
+                  class="appearance-none w-5 h-5 border-2  rounded-md bg-white checked:bg-blue-800 checked:border-0"
+                />
+                Browser default
+              </label>
+              <div class="itemPrice">1321321</div>
+            </div>
+          </div>
+        </div>
         <div class="optionsContainer">optionsContainer</div>
       </div>
     </div>
