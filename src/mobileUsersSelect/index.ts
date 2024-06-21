@@ -1,3 +1,5 @@
+import { calculatePrice } from "../PriceCalculator";
+import { setSelectPrice } from "../state/selectPrices";
 
 
 export function addOptionsToMobileUsersSelectSelect() {
@@ -30,7 +32,9 @@ export function addOptionsToMobileUsersSelectSelect() {
   export function mobileUsersSelectSelectOnChangeHandler(event: Event) {
     const price = 60000000;
     const value = (event.target as HTMLInputElement).value;
-   
+    setSelectPrice("mobileUserPrice", Number(value) * price);
+    calculatePrice()
+    
     document.getElementById("mobileUsersSelectSelectPrice")!.innerHTML = (
       Number(value) * price
     ).toString();

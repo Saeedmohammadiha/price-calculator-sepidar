@@ -1,5 +1,7 @@
+import { subSystemsList, updateSubSystemsList } from "../state/subSystemsList";
+
 // Function to create the HTML elements
-export function createCheckboxElement(item: CheckboxItem): HTMLElement {
+export function createSubSystemCheckboxElement(item: CheckboxItem): HTMLElement {
   const label = document.createElement("label");
   label.setAttribute("for", item.id.toString());
   label.className =
@@ -10,11 +12,11 @@ export function createCheckboxElement(item: CheckboxItem): HTMLElement {
 
   const input = document.createElement("input");
   input.type = "checkbox";
-  input.id = item.id.toString()
+  input.id = item.id
   input.className =
     "peer relative shrink-0 appearance-none w-4 h-4 hover:cursor-pointer rounded-md mt-1 bg-[#999999] checked:bg-[#999999]";
   input.checked = item.checked;
-input.addEventListener("change",checkboxChangeHandler)
+  input.addEventListener("change", checkboxSubSystemListChangeHandler);
   const span = document.createElement("span");
   span.textContent = item.name;
 
@@ -50,14 +52,12 @@ input.addEventListener("change",checkboxChangeHandler)
   return label;
 }
 
+function checkboxSubSystemListChangeHandler(event: Event) {
+  const checkbox = event.target as HTMLInputElement;
+  const updatedItem = subSystemsList.find((item) => item.id === checkbox.id);
 
-
-export function checkboxChangeHandler(e: Event){
-  const target = e.target as HTMLInputElement
-  if(target.id === "1"){
-    target.checked = false
+  if (updatedItem) {
+    updatedItem.checked = checkbox.checked;
+    updateSubSystemsList(updatedItem);
   }
-  console.log(e.target);
-  
-
 }

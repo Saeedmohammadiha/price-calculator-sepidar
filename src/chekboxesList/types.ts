@@ -1,5 +1,5 @@
 type CheckboxItem = {
-  id: number;
+  id: string;
   name: string;
   price: string;
   checked: boolean;

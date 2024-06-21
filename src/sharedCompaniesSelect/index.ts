@@ -1,3 +1,5 @@
+import { calculatePrice } from "../PriceCalculator";
+import { setSelectPrice } from "../state/selectPrices";
 
 
 export function addOptionsToSharedCompaniesSelect() {
@@ -29,7 +31,9 @@ export function addOptionsToSharedCompaniesSelect() {
   export function sharedCompaniesSelectOnChangeHandler(event: Event) {
     const price = 1511000000;
     const value = (event.target as HTMLInputElement).value;
-   
+    setSelectPrice("sharedCompaniesPrice", Number(value) * price);
+    calculatePrice()
+    
     document.getElementById("sharedCompaniesSelectPrice")!.innerHTML = (
       Number(value) * price
     ).toString();

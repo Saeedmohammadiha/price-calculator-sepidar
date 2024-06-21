@@ -1,3 +1,6 @@
+import { calculatePrice } from "../PriceCalculator";
+import { setSelectPrice } from "../state/selectPrices";
+
 export function addOptionsToLockSelect() {
   const values = [
     { id: "0", value: "0", text: "0" },
@@ -28,7 +31,9 @@ export function addOptionsToLockSelect() {
 export function lockSelectOnChangeHandler(event: Event) {
   const price = 60000000;
   const value = (event.target as HTMLInputElement).value;
- 
+  setSelectPrice("lockPrice", Number(value) * price);
+  calculatePrice()
+  
   document.getElementById("lockSelectPrice")!.innerHTML = (
     Number(value) * price
   ).toString();
