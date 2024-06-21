@@ -4,20 +4,33 @@ import { systemsList } from "../state/systemsList";
 
 export function calculatePrice() {
   const totalPrice = calculateTotalPrice();
-  //TODO: check for discount if not it should return the totalPrice
-  const totalPriceAfterDiscount = calculateDiscount(totalPrice);
+
+  const { isThereDiscount, totalPriceAfterDiscount } =
+    calculateDiscount(totalPrice);
+  console.log({ isThereDiscount });
+
   const tax = calculateTax(totalPriceAfterDiscount);
   const finalPriceAfterTax = totalPriceAfterDiscount + tax;
+
+  const calculatedDiscountOrZero = isThereDiscount
+    ? totalPriceAfterDiscount
+    : 0;
+
   renderPrices({
     totalPrice,
-    totalPriceAfterDiscount,
+    totalPriceAfterDiscount: calculatedDiscountOrZero,
     tax,
     finalPriceAfterTax,
   });
 }
 
 function calculateDiscount(totalPrice: number) {
-  return totalPrice * 0.9;
+  const filtered = systemsList.filter((item) => item.checked);
+  const isThereAnotherSystem = filtered.length > 1;
+  if (isThereAnotherSystem) {
+    return { isThereDiscount: true, totalPriceAfterDiscount: totalPrice * 0.9 };
+  }
+  return { isThereDiscount: false, totalPriceAfterDiscount: totalPrice };
 }
 
 function calculateTax(totalPrice: number) {
@@ -50,13 +63,23 @@ type renderPricesArguments = {
 function renderPrices(prices: renderPricesArguments) {
   const { totalPrice, totalPriceAfterDiscount, tax, finalPriceAfterTax } =
     prices;
-  const totalPriceElement = document.getElementById("total-price");
+
+  const discountContainerEl = document.getElementById("discountContainer");
   const discountElement = document.getElementById("discount-price");
+  const totalPriceElement = document.getElementById("total-price");
   const taxElement = document.getElementById("tax-price");
   const finalPriceElement = document.getElementById("final-price");
 
+  if (totalPriceAfterDiscount === 0) {
+    discountContainerEl?.classList.replace("flex", "hidden");
+  } else {
+    discountContainerEl?.classList.replace("hidden", "flex");
+    if (discountElement) {
+      discountElement.innerHTML = totalPriceAfterDiscount.toString();
+    }
+  }
+
   totalPriceElement!.innerHTML = totalPrice.toString();
-  discountElement!.innerHTML = totalPriceAfterDiscount.toString();
   taxElement!.innerHTML = tax.toString();
   finalPriceElement!.innerHTML = finalPriceAfterTax.toString();
 }

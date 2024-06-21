@@ -67,5 +67,20 @@ function checkboxSubSystemListChangeHandler(event: Event) {
       "systemsSelect"
     ) as HTMLSelectElement;
     selectSystemEl.value = "0";
+
+    // active the mobile select
+
+    if (updatedItem.id === "subSys_9") {
+      const mobileSelectEl = document.getElementById(
+        "mobileUsersSelect"
+      ) as HTMLSelectElement;
+      if (checkbox.checked) {
+        mobileSelectEl.disabled = false;
+      } else {
+        mobileSelectEl.disabled = true;
+        mobileSelectEl.value = "0";
+        document.getElementById("mobileUsersSelectPrice")!.innerHTML = "0";
+      }
+    }
   }
 }

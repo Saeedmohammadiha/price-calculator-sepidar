@@ -7,11 +7,11 @@
     <title></title>
   </head>
   <body>
-    <div id="app" class="w-full h-full " dir="rtl" style="font-family: iranyekan;">
+    <div id="app" class="w-full h-full px-4 text-sm" dir="rtl" style="font-family: iranyekan;">
       <div class="gap-3 flex flex-col sm:flex-row">
         <div class="selectAndPriceContainer w-full sm:w-[25%] my-3">
           <div
-            class="block text-center mb-2 p-1 bg-[#93b027] text-lg font-medium rounded-md text-white"
+          class="block text-center mb-2 p-1 bg-[#93b027] text-lg font-medium rounded-md text-white"
           >
             انتخاب بسته نرم‌افزاری
           </div>
@@ -19,7 +19,7 @@
           <div class="block w-full p-2 bg-[#eeeeee] rounded-md my-2">
             <select
               id="systemsSelect"
-              class="h-12 border border-gray-300 text-gray-600 text-base rounded-lg block w-full py-2.5 px-4 focus:outline-none"
+              class=" border border-gray-300 text-gray-600 text-base rounded p-1 block w-full  focus:outline-none"
             ></select>
           </div>
 
@@ -40,7 +40,7 @@
               <div class="font-bold">مالیات و عوارض:</div>
               <div id="tax-price" class="mx-2">0</div><span>ریال</span>
             </div>
-            <div class="tax flex">
+            <div id="discountContainer" class="hidden">
               <div class="font-bold">10% تخفیف خرید بسته:</div>
               <div id="discount-price" class="mx-2">0</div><span>ریال</span>
             </div>
@@ -79,11 +79,11 @@
               <p class="font-bold mb-1">تعداد قفل مشاهده</p>
               <select
                 id="lockSelect"
-                class="border border-gray-300 text-gray-600 text-base rounded-lg block w-full py-2.5 px-4 focus:outline-none"
+                class="border border-gray-300 text-gray-600 text-base  rounded p-1 block w-full  focus:outline-none"
               ></select>
-              <div class="my-3">
+              <div class="mb-3">
                 <div>
-                  <span class="text-sm inline-block mb-4">
+                  <span class="text-xs inline-block mb-4">
                     تعداد قفل مشاهده پیش فرض :</span
                   >
                   <span id="lockSelectValue">0</span>
@@ -99,11 +99,11 @@
               <p class="font-bold mb-1">تعداد کاربر</p>
               <select
                 id="usersCountSelect"
-                class="border border-gray-300 text-gray-600 text-base rounded-lg block w-full py-2.5 px-4 focus:outline-none"
+                class="border border-gray-300 text-gray-600 text-base rounded p-1 block w-full  focus:outline-none"
               ></select>
-              <div class="my-3">
+              <div class="mb-3">
                 <div>
-                  <span class="text-sm inline-block mb-4">
+                  <span class="text-xs inline-block mb-4">
                     تعداد کاربر پیش فرض :
                   </span>
                   <span id="usersCountSelectValue">1</span>
@@ -120,11 +120,11 @@
             <p class="font-bold mb-1">چند شرکت همزمان</p>
             <select
               id="sharedCompaniesSelect"
-              class="border border-gray-300 text-gray-600 text-base rounded-lg block w-full py-2.5 px-4 focus:outline-none"
+              class="border border-gray-300 text-gray-600 text-base rounded p-1 block w-full  focus:outline-none"
             ></select>
-            <div class="my-3">
+            <div class="mb-3">
               <div>
-                <span class="text-sm inline-block mb-4">
+                <span class="text-xs inline-block mb-4">
                   تعداد شرکت پیش فرض :
                 </span>
                 <span id="sharedCompaniesSelectValue">2</span>
@@ -142,11 +142,11 @@
             </p>
             <select
               id="mobileUsersSelect"
-              class="disabled:bg-[#ededed] border border-gray-300 text-gray-600 text-base rounded-lg block w-full py-2.5 px-4 focus:outline-none"
+              class="disabled:bg-[#ededed] border border-gray-300 text-gray-600 text-base rounded p-1 block w-full  focus:outline-none"
             ></select>
-            <div class="my-3">
+            <div class="mb-3">
               <div>
-                <span class="text-sm inline-block mb-4">
+                <span class="text-xs inline-block mb-4">
                   تعداد کاربر پیش فرض :
                 </span>
                 <span id="mobileUsersSelectValue">1</span>
