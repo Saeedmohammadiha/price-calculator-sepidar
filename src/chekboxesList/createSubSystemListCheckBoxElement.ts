@@ -1,4 +1,3 @@
-import { toggleModal } from "../modal";
 import { subSystemsList, updateSubSystemsList } from "../state/subSystemsList";
 import { checkIfPreORSysAreChecked, checkIfPreSubORSysAreChecked, checkIfPreSubSysAreChecked, checkIfPreSysAreChecked, unCheckTheSubSysPostsOfunCheckedItem, unCheckTheSysPostsOfunCheckedItem } from "./createSystemListCheckBoxElement";
 

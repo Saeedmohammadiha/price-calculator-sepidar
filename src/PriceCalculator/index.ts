@@ -80,9 +80,9 @@ function renderPrices(prices: renderPricesArguments) {
   const {
     discount,
     hotDiscount,
-    priceAfterHotDiscount,
+   // priceAfterHotDiscount,
     totalPrice,
-    totalPriceAfterDiscount,
+   // totalPriceAfterDiscount,
     tax,
     finalPriceAfterTax,
   } = prices;
