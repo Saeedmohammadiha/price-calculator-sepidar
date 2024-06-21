@@ -103,3 +103,9 @@ export function updateSystemsList(updatedItem: CheckboxItem) {
   renderSystemsList(systemsList);
   calculatePrice();
 }
+
+export function setNewSystemsList(newList: CheckboxItem[]) {
+  systemsList = newList;
+  renderSystemsList(systemsList);
+  calculatePrice();
+}

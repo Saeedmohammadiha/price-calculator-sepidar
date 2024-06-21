@@ -2,11 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* #app {
-  direction: rtl;
+@font-face {
+  font-family: iranyekan;
+  src: url(/public/iranyekanwebregular.woff2);
 }
-
-.container {
-  display: flex;
-  gap: 20px;
-} */

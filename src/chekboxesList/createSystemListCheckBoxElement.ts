@@ -40,7 +40,7 @@ export function createSystemCheckboxElement(item: CheckboxItem): HTMLElement {
 
   const divPrice = document.createElement("div");
   divPrice.className = "itemPrice";
-  divPrice.textContent = item.price;
+  divPrice.textContent = `+${item.price} ریال`;
 
   divContainer.appendChild(input);
   divContainer.appendChild(span);
@@ -54,11 +54,21 @@ export function createSystemCheckboxElement(item: CheckboxItem): HTMLElement {
 
 function checkboxChangeHandler(event: Event) {
   const checkbox = event.target as HTMLInputElement;
-  checkbox.id;
+
   const updatedItem = systemsList.find((item) => item.id === checkbox.id);
 
   if (updatedItem) {
-    updatedItem.checked = checkbox.checked;
+    if (checkbox.id === "sys_1") {
+      updatedItem.checked = true;
+    } else {
+      updatedItem.checked = checkbox.checked;
+    }
     updateSystemsList(updatedItem);
   }
+
+  // reset the select system
+  const selectSystemEl = document.getElementById(
+    "systemsSelect"
+  ) as HTMLSelectElement;
+  selectSystemEl.value = "0";
 }

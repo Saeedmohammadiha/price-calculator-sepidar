@@ -1,6 +1,7 @@
 import { renderSubSystemsList, renderSystemsList } from "./chekboxesList";
 import { addOptionsToLockSelect } from "./lockSelect";
-import { addOptionsToMobileUsersSelectSelect } from "./mobileUsersSelect";
+import { addOptionsToMobileUsersSelect } from "./mobileUsersSelect";
+import { calculatePrice } from "./PriceCalculator";
 import { selectSystem } from "./selectSystem";
 import { addOptionsToSharedCompaniesSelect } from "./sharedCompaniesSelect";
 import { subSystemsList } from "./state/subSystemsList";
@@ -8,12 +9,14 @@ import { systemsList } from "./state/systemsList";
 import "./style.css";
 import { addOptionsToUsersCountSelect } from "./usersCountSelect";
 
-selectSystem();
+document.addEventListener("DOMContentLoaded", () => {
+  renderSystemsList(systemsList);
+  renderSubSystemsList(subSystemsList);
+  calculatePrice();
 
-renderSystemsList(systemsList);
-renderSubSystemsList(subSystemsList);
-
-addOptionsToLockSelect();
-addOptionsToUsersCountSelect();
-addOptionsToSharedCompaniesSelect();
-addOptionsToMobileUsersSelectSelect();
+  selectSystem();
+  addOptionsToLockSelect();
+  addOptionsToUsersCountSelect();
+  addOptionsToSharedCompaniesSelect();
+  addOptionsToMobileUsersSelect();
+});

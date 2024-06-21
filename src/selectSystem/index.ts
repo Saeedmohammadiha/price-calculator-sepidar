@@ -1,3 +1,9 @@
+import { setNewSubSystemsList, subSystemsList } from "../state/subSystemsList";
+import {
+  setNewSystemsList,
+  systemsList,
+} from "../state/systemsList";
+
 export function selectSystem() {
   const select = document.getElementById("systemsSelect");
 
@@ -16,8 +22,52 @@ export function selectSystem() {
     option.text = value.text;
     select?.appendChild(option);
   });
+
+  select?.addEventListener("change", selectOnChangeHandler);
 }
 
-export function selectOnChangeHandler() {
-  //change the selected checkboxes to the selected system
+export function selectOnChangeHandler(event: Event) {
+  const target = event.target as HTMLInputElement;
+  const value = target.value;
+  
+  const systemCheckedItems: { [key: string]: string[] } = {
+    "0": ["sys_1"],
+    "1": ["sys_1", "sys_3", "sys_5", "sys_6", "sys_7"],
+    "2": ["sys_1", "sys_3", "sys_4", "sys_5", "sys_6", "sys_10"],
+    "3": ["sys_1", "sys_3", "sys_5", "sys_8"],
+    "4": ["sys_1", "sys_3", "sys_5", "sys_9"],
+    "5": ["sys_1", "sys_3", "sys_5", "sys_6", "sys_7", "sys_13"]
+  };
+
+  const subSystemCheckedItems: { [key: string]: string[] } = {
+    "0": [],
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": ["subSys_2"]
+  };
+
+  if (value in systemCheckedItems) {
+    const newSysList = newListGenerator(systemsList, systemCheckedItems[value]);
+    setNewSystemsList(newSysList);
+
+    const newSubSysList = newListGenerator(subSystemsList, subSystemCheckedItems[value]);
+    setNewSubSystemsList(newSubSysList);
+  }
+}
+
+function newListGenerator(list: CheckboxItem[], trueItemsIdLIst: string[]) {
+  const newList = list.map((item) => {
+    const trueItem = trueItemsIdLIst.find((trueItem) => trueItem === item.id);
+
+    if (trueItem) {
+      item.checked = true;
+    } else {
+      item.checked = false;
+    }
+
+    return item;
+  });
+  return newList;
 }

@@ -1,7 +1,9 @@
 import { subSystemsList, updateSubSystemsList } from "../state/subSystemsList";
 
 // Function to create the HTML elements
-export function createSubSystemCheckboxElement(item: CheckboxItem): HTMLElement {
+export function createSubSystemCheckboxElement(
+  item: CheckboxItem
+): HTMLElement {
   const label = document.createElement("label");
   label.setAttribute("for", item.id.toString());
   label.className =
@@ -12,7 +14,7 @@ export function createSubSystemCheckboxElement(item: CheckboxItem): HTMLElement 
 
   const input = document.createElement("input");
   input.type = "checkbox";
-  input.id = item.id
+  input.id = item.id;
   input.className =
     "peer relative shrink-0 appearance-none w-4 h-4 hover:cursor-pointer rounded-md mt-1 bg-[#999999] checked:bg-[#999999]";
   input.checked = item.checked;
@@ -40,7 +42,7 @@ export function createSubSystemCheckboxElement(item: CheckboxItem): HTMLElement 
 
   const divPrice = document.createElement("div");
   divPrice.className = "itemPrice";
-  divPrice.textContent = item.price;
+  divPrice.textContent = `+${item.price} ریال`;
 
   divContainer.appendChild(input);
   divContainer.appendChild(span);
@@ -59,5 +61,11 @@ function checkboxSubSystemListChangeHandler(event: Event) {
   if (updatedItem) {
     updatedItem.checked = checkbox.checked;
     updateSubSystemsList(updatedItem);
+
+    // reset the select system
+    const selectSystemEl = document.getElementById(
+      "systemsSelect"
+    ) as HTMLSelectElement;
+    selectSystemEl.value = "0";
   }
 }

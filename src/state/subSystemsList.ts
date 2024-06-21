@@ -90,3 +90,9 @@ export function updateSubSystemsList(updatedItem: CheckboxItem) {
   renderSubSystemsList(subSystemsList);
   calculatePrice();
 }
+
+export function setNewSubSystemsList(newList: CheckboxItem[]) {
+  subSystemsList = newList;
+  renderSubSystemsList(subSystemsList);
+  calculatePrice();
+}
