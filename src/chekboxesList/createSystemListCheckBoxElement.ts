@@ -1,3 +1,5 @@
+import { toggleModal } from "../modal";
+import { subSystemsList, updateSubSystemsList } from "../state/subSystemsList";
 import { systemsList, updateSystemsList } from "../state/systemsList";
 
 // Function to create the HTML elements
@@ -54,14 +56,30 @@ export function createSystemCheckboxElement(item: CheckboxItem): HTMLElement {
 
 function checkboxChangeHandler(event: Event) {
   const checkbox = event.target as HTMLInputElement;
-
-  const updatedItem = systemsList.find((item) => item.id === checkbox.id);
+  let updatedItem = systemsList.find((item) => item.id === checkbox.id);
 
   if (updatedItem) {
     if (checkbox.id === "sys_1") {
       updatedItem.checked = true;
     } else {
-      updatedItem.checked = checkbox.checked;
+      if (checkbox.checked) {
+        if (
+          checkIfPreSysAreChecked(updatedItem) &&
+          checkIfPreSubSysAreChecked(updatedItem) &&
+          checkIfPreORSysAreChecked(updatedItem) &&
+          checkIfPreSubORSysAreChecked(updatedItem)
+        ) {
+          updatedItem.checked = true;
+        } else {
+          console.log(checkIfPreSysAreChecked(updatedItem) ,
+          checkIfPreSubSysAreChecked(updatedItem) ,
+          checkIfPreORSysAreChecked(updatedItem) ,
+          checkIfPreSubORSysAreChecked(updatedItem));
+        }
+      } else if (!checkbox.checked) {
+        updatedItem = unCheckTheSysPostsOfunCheckedItem(updatedItem);
+        updatedItem = unCheckTheSubSysPostsOfunCheckedItem(updatedItem);
+      }
     }
     updateSystemsList(updatedItem);
   }
@@ -71,4 +89,109 @@ function checkboxChangeHandler(event: Event) {
     "systemsSelect"
   ) as HTMLSelectElement;
   selectSystemEl.value = "0";
+
+ 
+}
+
+export function checkIfPreSysAreChecked(item: CheckboxItem): boolean {
+  let areChecked: boolean = false;
+  if (!item.pre!.length) return true;
+
+  for (let index = 0; index < item.pre!.length; index++) {
+    const element = item.pre![index];
+    const preCheckbox = systemsList.find((item) => item.id === element);
+
+    if (!preCheckbox?.checked) {
+      areChecked = false;
+      toggleModal(true, item.textForModal);
+      break;
+    } else {
+      areChecked = true;
+    }
+  }
+  return areChecked;
+}
+
+export function checkIfPreSubSysAreChecked(item: CheckboxItem): boolean {
+  let areChecked: boolean = false;
+  if (!item.preSub!.length) return true;
+
+  for (let index = 0; index < item.preSub!.length; index++) {
+    const element = item.preSub![index];
+    const preSubCheckbox = subSystemsList.find((item) => item.id === element);
+
+    if (!preSubCheckbox?.checked) {
+      areChecked = false;
+      toggleModal(true, item.textForModal);
+      break;
+    } else {
+      areChecked = true;
+    }
+  }
+  return areChecked;
+}
+export function checkIfPreORSysAreChecked(item: CheckboxItem): boolean {
+  // If preOR is empty, return true immediately
+  if (!item.preOR.length) return true;
+
+  for (const element of item.preOR) {
+    const preCheckbox = systemsList.find(system => system.id === element);
+    console.log({ preCheckbox });
+
+    if (preCheckbox?.checked) {
+      return true; // Return true as soon as we find a checked item
+    }
+  }
+
+  // If none of the items are checked, show the modal and return false
+  toggleModal(true, item.textForModal);
+  return false;
+}
+
+export function checkIfPreSubORSysAreChecked(item: CheckboxItem): boolean {
+  if (!item.preSubOR.length) return true;
+
+  for (const element of item.preSubOR) {
+    const preCheckbox = subSystemsList.find(system => system.id === element);
+
+    if (preCheckbox?.checked) {
+      return true; // Return true as soon as we find a checked item
+    }
+  }
+
+   // If none of the items are checked, show the modal and return false
+   toggleModal(true, item.textForModal);
+   return false;
+  
+}
+
+export function unCheckTheSysPostsOfunCheckedItem(item: CheckboxItem) {
+  let chengedItem = item;
+  chengedItem.checked = false;
+
+  if (!item.post.length) return chengedItem;
+
+  for (let index = 0; index < item.post.length; index++) {
+    const element = item.post[index];
+    const postCheckbox = systemsList.find((item) => item.id === element);
+    postCheckbox!.checked = false;
+  }
+
+  return chengedItem;
+}
+
+export function unCheckTheSubSysPostsOfunCheckedItem(item: CheckboxItem) {
+  let chengedItem = item;
+  chengedItem.checked = false;
+
+  if (!item.postSub.length) return chengedItem;
+
+  for (let index = 0; index < item.postSub.length; index++) {
+    const element = item.postSub[index];
+    const postSubCheckbox = subSystemsList.find((item) => item.id === element);
+    postSubCheckbox!.checked = false;
+    updateSubSystemsList(postSubCheckbox!);
+  }
+
+  return chengedItem;
 }

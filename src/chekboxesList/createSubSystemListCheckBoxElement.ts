@@ -1,4 +1,6 @@
+import { toggleModal } from "../modal";
 import { subSystemsList, updateSubSystemsList } from "../state/subSystemsList";
+import { checkIfPreORSysAreChecked, checkIfPreSubORSysAreChecked, checkIfPreSubSysAreChecked, checkIfPreSysAreChecked, unCheckTheSubSysPostsOfunCheckedItem, unCheckTheSysPostsOfunCheckedItem } from "./createSystemListCheckBoxElement";
 
 // Function to create the HTML elements
 export function createSubSystemCheckboxElement(
@@ -56,10 +58,24 @@ export function createSubSystemCheckboxElement(
 
 function checkboxSubSystemListChangeHandler(event: Event) {
   const checkbox = event.target as HTMLInputElement;
-  const updatedItem = subSystemsList.find((item) => item.id === checkbox.id);
+  let updatedItem = subSystemsList.find((item) => item.id === checkbox.id);
 
   if (updatedItem) {
-    updatedItem.checked = checkbox.checked;
+
+   
+    if (checkbox.checked) {
+      if (
+        checkIfPreSysAreChecked(updatedItem) &&
+        checkIfPreSubSysAreChecked(updatedItem) &&
+        checkIfPreORSysAreChecked(updatedItem) &&
+        checkIfPreSubORSysAreChecked(updatedItem)
+      ) {
+        updatedItem.checked = true;
+      } 
+    } else if (!checkbox.checked) {
+      updatedItem = unCheckTheSysPostsOfunCheckedItem(updatedItem);
+      updatedItem = unCheckTheSubSysPostsOfunCheckedItem(updatedItem);
+    }
     updateSubSystemsList(updatedItem);
 
     // reset the select system
@@ -69,7 +85,6 @@ function checkboxSubSystemListChangeHandler(event: Event) {
     selectSystemEl.value = "0";
 
     // active the mobile select
-
     if (updatedItem.id === "subSys_9") {
       const mobileSelectEl = document.getElementById(
         "mobileUsersSelect"

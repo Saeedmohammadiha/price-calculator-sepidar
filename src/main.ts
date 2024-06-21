@@ -10,6 +10,10 @@ import "./style.css";
 import { addOptionsToUsersCountSelect } from "./usersCountSelect";
 
 document.addEventListener("DOMContentLoaded", () => {
+
+
+
+
   renderSystemsList(systemsList);
   renderSubSystemsList(subSystemsList);
   calculatePrice();

@@ -7,11 +7,16 @@
     <title></title>
   </head>
   <body>
-    <div id="app" class="w-full h-full px-4 text-sm" dir="rtl" style="font-family: iranyekan;">
+    <div
+      id="app"
+      class="w-full h-full px-4 text-sm "
+      dir="rtl"
+      style="font-family: iranyekan"
+    >
       <div class="gap-3 flex flex-col sm:flex-row">
         <div class="selectAndPriceContainer w-full sm:w-[25%] my-3">
           <div
-          class="block text-center mb-2 p-1 bg-[#93b027] text-lg font-medium rounded-md text-white"
+            class="block text-center mb-2 p-1 bg-[#93b027] text-lg font-medium rounded-md text-white"
           >
             انتخاب بسته نرم‌افزاری
           </div>
@@ -19,34 +24,43 @@
           <div class="block w-full p-2 bg-[#eeeeee] rounded-md my-2">
             <select
               id="systemsSelect"
-              class=" border border-gray-300 text-gray-600 text-base rounded p-1 block w-full  focus:outline-none"
+              class="border border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
             ></select>
           </div>
 
           <div
-            class=" max-sm:hidden block text-center mb-2 p-1 bg-[#93b027] text-lg font-medium rounded-md text-white"
+            class="max-sm:hidden block text-center mb-2 p-1 bg-[#93b027] text-lg font-medium rounded-md text-white"
           >
             قیمت نهایی
           </div>
           <div
-            class="bg-[#e6e6e6] sm:rounded-md p-2 fixed bottom-0 w-full z-10 sm:sticky sm:top-0 "
+            class="bg-[#e6e6e6] sm:rounded-md p-2 fixed bottom-0 left-0 w-full z-10 sm:z-0 sm:sticky sm:top-0"
             style="align-self: flex-start"
           >
             <div class="holePrice flex">
               <div class="font-bold">قیمت کل:</div>
-              <div id="total-price" class="mx-2">0</div><span>ریال</span>
+              <div id="total-price" class="mx-2">0</div>
+              <span>ریال</span>
             </div>
             <div class="tax flex">
               <div class="font-bold">مالیات و عوارض:</div>
-              <div id="tax-price" class="mx-2">0</div><span>ریال</span>
+              <div id="tax-price" class="mx-2">0</div>
+              <span>ریال</span>
             </div>
             <div id="discountContainer" class="hidden">
               <div class="font-bold">10% تخفیف خرید بسته:</div>
-              <div id="discount-price" class="mx-2">0</div><span>ریال</span>
+              <div id="discount-price" class="mx-2">0</div>
+              <span>ریال</span>
+            </div>
+            <div id="hot&coldDiscountContainer" class="hidden">
+              <div class="font-bold">تخفیف خرید همزمان سیستم پخش گرم و سرد:</div>
+              <div id="hot&coldDiscount-price" class="mx-2">0</div>
+              <span>ریال</span>
             </div>
             <div class="tax flex">
               <div class="font-bold">جمع کل:</div>
-              <div id="final-price" class="mx-2 text-[#87b187]">0</div> <span>ریال</span>
+              <div id="final-price" class="mx-2 text-[#87b187]">0</div>
+              <span>ریال</span>
             </div>
           </div>
         </div>
@@ -79,7 +93,7 @@
               <p class="font-bold mb-1">تعداد قفل مشاهده</p>
               <select
                 id="lockSelect"
-                class="border border-gray-300 text-gray-600 text-base  rounded p-1 block w-full  focus:outline-none"
+                class="border border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
               ></select>
               <div class="mb-3">
                 <div>
@@ -99,7 +113,7 @@
               <p class="font-bold mb-1">تعداد کاربر</p>
               <select
                 id="usersCountSelect"
-                class="border border-gray-300 text-gray-600 text-base rounded p-1 block w-full  focus:outline-none"
+                class="border border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
               ></select>
               <div class="mb-3">
                 <div>
@@ -120,7 +134,7 @@
             <p class="font-bold mb-1">چند شرکت همزمان</p>
             <select
               id="sharedCompaniesSelect"
-              class="border border-gray-300 text-gray-600 text-base rounded p-1 block w-full  focus:outline-none"
+              class="border border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
             ></select>
             <div class="mb-3">
               <div>
@@ -142,7 +156,7 @@
             </p>
             <select
               id="mobileUsersSelect"
-              class="disabled:bg-[#ededed] border border-gray-300 text-gray-600 text-base rounded p-1 block w-full  focus:outline-none"
+              class="disabled:bg-[#ededed] border border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
             ></select>
             <div class="mb-3">
               <div>
@@ -186,6 +200,41 @@
         </div>
       </div>
     </div>
+
+    <div
+      id="modal"
+      dir="rtl"
+      class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden"
+    >
+      <div class="bg-white rounded-lg overflow-hidden shadow-xl w-3/4">
+        <!-- Close button -->
+        <div class="flex justify-between items-center">
+          <div class="text-right  font-bold">پیش نیاز های این آیتم</div>
+          <button
+            id="closeModalButton"
+            class="text-gray-400 hover:text-gray-600 p-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <!-- Modal content -->
+        <div id="modalContent" class="p-8"></div>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
