@@ -1,4 +1,5 @@
 import { subSystemsList, updateSubSystemsList } from "../state/subSystemsList";
+import { formatPrice } from "../utils";
 import { checkIfPreORSysAreChecked, checkIfPreSubORSysAreChecked, checkIfPreSubSysAreChecked, checkIfPreSysAreChecked, unCheckTheSubSysPostsOfunCheckedItem, unCheckTheSysPostsOfunCheckedItem } from "./createSystemListCheckBoxElement";
 
 // Function to create the HTML elements
@@ -43,7 +44,7 @@ export function createSubSystemCheckboxElement(
 
   const divPrice = document.createElement("div");
   divPrice.className = "itemPrice";
-  divPrice.textContent = `+${item.price} ریال`;
+  divPrice.textContent = `+${formatPrice(Number(item.price))} ریال`;
 
   divContainer.appendChild(input);
   divContainer.appendChild(span);

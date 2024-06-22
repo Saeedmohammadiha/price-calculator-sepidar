@@ -1,5 +1,6 @@
 import { calculatePrice } from "../PriceCalculator";
 import { setSelectPrice } from "../state/selectPrices";
+import { formatPrice } from "../utils";
 
 export function addOptionsToMobileUsersSelect() {
   const values = [
@@ -39,6 +40,6 @@ export function mobileUsersSelectOnChangeHandler(event: Event) {
   calculatePrice();
 
   document.getElementById("mobileUsersSelectPrice")!.innerHTML = (
-    Number(value) * price
+    formatPrice(Number(value) * price)
   ).toString();
 }
