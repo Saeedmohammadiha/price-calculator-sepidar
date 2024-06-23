@@ -9,12 +9,15 @@
   <body>
     <div
       id="app"
-      class="w-full h-full px-4 text-sm "
+      class="w-full h-full px-4 text-sm"
       dir="rtl"
       style="font-family: iranyekan"
     >
       <div class="gap-3 flex flex-col sm:flex-row">
-        <div class="selectAndPriceContainer w-full sm:w-[25%] my-3">
+        <div
+          class="selectAndPriceContainer w-full sm:w-[25%] my-3 "
+        >
+        <div class="z-10 sm:z-0 sm:sticky sm:top-0">
           <div
             class="block text-center mb-2 p-1 bg-[#93b027] text-lg font-medium rounded-md text-white"
           >
@@ -34,7 +37,7 @@
             قیمت نهایی
           </div>
           <div
-            class="bg-[#e6e6e6] sm:rounded-md p-2 fixed bottom-0 left-0 w-full z-10 sm:z-0 sm:sticky sm:top-0"
+            class="bg-[#e6e6e6] sm:rounded-md p-2 max-sm:fixed bottom-0 left-0 w-full z-10 sm:z-0"
             style="align-self: flex-start"
           >
             <div class="holePrice flex">
@@ -53,7 +56,9 @@
               <span>ریال</span>
             </div>
             <div id="hot&coldDiscountContainer" class="hidden">
-              <div class="font-bold">تخفیف خرید همزمان سیستم پخش گرم و سرد:</div>
+              <div class="font-bold">
+                تخفیف خرید همزمان سیستم پخش گرم و سرد:
+              </div>
               <div id="hot&coldDiscount-price" class="mx-2">0</div>
               <span>ریال</span>
             </div>
@@ -63,6 +68,7 @@
               <span>ریال</span>
             </div>
           </div>
+        </div>
         </div>
         <div class="systemsContainer flex-1 my-3">
           <div
@@ -209,7 +215,7 @@
       <div class="bg-white rounded-lg overflow-hidden shadow-xl w-3/4">
         <!-- Close button -->
         <div class="flex justify-between items-center">
-          <div class="text-right  font-bold">پیش نیاز های این آیتم</div>
+          <div class="text-right font-bold">پیش نیاز های این آیتم</div>
           <button
             id="closeModalButton"
             class="text-gray-400 hover:text-gray-600 p-2"
