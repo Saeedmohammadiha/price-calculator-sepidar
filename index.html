@@ -27,7 +27,7 @@
           <div class="block w-full p-2 bg-[#eeeeee] rounded-md my-2">
             <select
               id="systemsSelect"
-              class="border border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
+              class="border bg-white border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
             ></select>
           </div>
 
@@ -45,14 +45,15 @@
               <div id="total-price" class="mx-2">0</div>
               <span>ریال</span>
             </div>
-            <div class="tax flex">
-              <div class="font-bold">مالیات و عوارض:</div>
-              <div id="tax-price" class="mx-2">0</div>
-              <span>ریال</span>
-            </div>
+            
             <div id="discountContainer" class="hidden">
               <div class="font-bold">10% تخفیف خرید بسته:</div>
               <div id="discount-price" class="mx-2">0</div>
+              <span>ریال</span>
+            </div>
+            <div class="tax flex">
+              <div class="font-bold">مالیات و عوارض:</div>
+              <div id="tax-price" class="mx-2">0</div>
               <span>ریال</span>
             </div>
             <div id="hot&coldDiscountContainer" class="hidden">
@@ -99,7 +100,7 @@
               <p class="font-bold mb-1">تعداد قفل مشاهده</p>
               <select
                 id="lockSelect"
-                class="border border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
+                class="border bg-white border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
               ></select>
               <div class="mb-3">
                 <div>
@@ -119,7 +120,7 @@
               <p class="font-bold mb-1">تعداد کاربر</p>
               <select
                 id="usersCountSelect"
-                class="border border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
+                class="border bg-white border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
               ></select>
               <div class="mb-3">
                 <div>
@@ -140,7 +141,7 @@
             <p class="font-bold mb-1">چند شرکت همزمان</p>
             <select
               id="sharedCompaniesSelect"
-              class="border border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
+              class="border bg-white border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
             ></select>
             <div class="mb-3">
               <div>
@@ -162,7 +163,7 @@
             </p>
             <select
               id="mobileUsersSelect"
-              class="disabled:bg-[#ededed] border border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
+              class="disabled:bg-[#ededed] bg-white border border-gray-300 text-gray-600 text-base rounded p-1 block w-full focus:outline-none"
             ></select>
             <div class="mb-3">
               <div>
@@ -212,7 +213,7 @@
       dir="rtl"
       class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden"
     >
-      <div class="bg-white rounded-lg overflow-hidden shadow-xl w-3/4">
+      <div class="bg-white rounded-lg overflow-hidden shadow-xl max-sm:w-4/5 max-md:w-2/4 w-1/3 ">
         <!-- Close button -->
         <div class="flex justify-between items-center">
           <div class="text-right font-bold">پیش نیاز های این آیتم</div>

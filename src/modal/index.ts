@@ -9,7 +9,7 @@ export function toggleModal(show: boolean, content?: string[]) {
     modal!.classList.remove("hidden");
     const contenetContainer = document.getElementById("modalContent");
     const textList = content?.map((text) => {
-      const regex = new RegExp(`(${"یا"})`, 'g');
+      const regex = new RegExp(`(${" یا "})`, 'g');
       const newText = text.replace(regex, '<span class="highlightYa">$1</span>');      
       return `<li>${newText}</li>`;
     });

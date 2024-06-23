@@ -1,5 +1,6 @@
 import { calculatePrice } from "../PriceCalculator";
 import { setSelectPrice } from "../state/selectPrices";
+import { formatPrice } from "../utils";
 
 
 export function addOptionsToSharedCompaniesSelect() {
@@ -35,7 +36,7 @@ export function addOptionsToSharedCompaniesSelect() {
     calculatePrice()
     
     document.getElementById("sharedCompaniesSelectPrice")!.innerHTML = (
-      Number(value) * price
+      formatPrice(Number(value) * price)
     ).toString();
   }
   

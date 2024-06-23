@@ -1,5 +1,6 @@
 import { calculatePrice } from "../PriceCalculator";
 import { setSelectPrice } from "../state/selectPrices";
+import { formatPrice } from "../utils";
 
 export function addOptionsToUsersCountSelect() {
   const values = [
@@ -36,6 +37,6 @@ export function usersCountSelectOnChangeHandler(event: Event) {
   calculatePrice()
   
   document.getElementById("usersCountSelectPrice")!.innerHTML = (
-    Number(value) * price
+    formatPrice(Number(value) * price)
   ).toString();
 }

@@ -1,6 +1,7 @@
 import { toggleModal } from "../modal";
 import { subSystemsList, updateSubSystemsList } from "../state/subSystemsList";
 import { systemsList, updateSystemsList } from "../state/systemsList";
+import { formatPrice } from "../utils";
 
 // Function to create the HTML elements
 export function createSystemCheckboxElement(item: CheckboxItem): HTMLElement {
@@ -42,7 +43,7 @@ export function createSystemCheckboxElement(item: CheckboxItem): HTMLElement {
 
   const divPrice = document.createElement("div");
   divPrice.className = "itemPrice";
-  divPrice.textContent = `+${item.price} ریال`;
+  divPrice.textContent = `+${formatPrice(Number(item.price))} ریال`;
 
   divContainer.appendChild(input);
   divContainer.appendChild(span);
