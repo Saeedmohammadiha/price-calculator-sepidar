@@ -148,7 +148,7 @@ export let systemsList: CheckboxItem[] = [
     preSub: ["subSys_2"],
     preOR: ["sys_4","sys_7"],
     preSubOR: [],
-    post: ["sys_12"],
+    post: ["sys_12", "sys_13"],
     postSub: ["subSys_9"],
     textForModal: [
       "سیستم دریافت و پرداخت",
@@ -176,7 +176,7 @@ export let systemsList: CheckboxItem[] = [
     name: "سیستم پخش گرم",
     price: "405000000",
     checked: false,
-    pre: [],
+    pre: ["sys_11"],
 
     preSub: ["subSys_2"],
     preOR: [],
