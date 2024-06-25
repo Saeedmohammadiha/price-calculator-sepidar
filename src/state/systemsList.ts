@@ -183,7 +183,7 @@ export let systemsList: CheckboxItem[] = [
     preSubOR: [],
     post: [],
     postSub: [],
-    textForModal: ["فروش پیشرفته"],
+    textForModal: ["فروش پیشرفته","سیستم سفارش گیری"],
   },
   {
     id: "sys_14",
