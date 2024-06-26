@@ -1,3 +1,5 @@
+import { sharedCompaniePriceCalculate } from "../sharedCompaniesSelect";
+
 type selectPrices = {
   lockPrice: number;
   mobileUserPrice: number;
@@ -11,6 +13,13 @@ export const selectPrices: selectPrices = {
   userCountPrice: 0,
   sharedCompaniesPrice: 0,
   getTotalPrice: function (): number {
+    const sharedCompaniesSelectValue = (
+      document.getElementById("sharedCompaniesSelect") as HTMLInputElement
+    ).value;
+    this.sharedCompaniesPrice = sharedCompaniePriceCalculate(
+      sharedCompaniesSelectValue
+    );
+
     // Implement the method
     return (
       this.lockPrice +

@@ -17,6 +17,7 @@ export function calculatePrice() {
   const tax = calculateTax(priceAfterHotDiscount);
   const finalPriceAfterTax = priceAfterHotDiscount + tax;
 
+
   renderPrices({
     hotDiscount,
     totalPrice,

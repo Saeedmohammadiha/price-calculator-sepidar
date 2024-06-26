@@ -71,12 +71,7 @@ function checkboxChangeHandler(event: Event) {
           checkIfPreSubORSysAreChecked(updatedItem)
         ) {
           updatedItem.checked = true;
-        } else {
-          console.log(checkIfPreSysAreChecked(updatedItem) ,
-          checkIfPreSubSysAreChecked(updatedItem) ,
-          checkIfPreORSysAreChecked(updatedItem) ,
-          checkIfPreSubORSysAreChecked(updatedItem));
-        }
+        } 
       } else if (!checkbox.checked) {
         updatedItem = unCheckTheSysPostsOfunCheckedItem(updatedItem);
         updatedItem = unCheckTheSubSysPostsOfunCheckedItem(updatedItem);
@@ -137,8 +132,8 @@ export function checkIfPreORSysAreChecked(item: CheckboxItem): boolean {
 
   for (const element of item.preOR) {
     const preCheckbox = systemsList.find(system => system.id === element);
-    console.log({ preCheckbox });
 
+    
     if (preCheckbox?.checked) {
       return true; // Return true as soon as we find a checked item
     }
