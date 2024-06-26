@@ -36,7 +36,7 @@ export function selectOnChangeHandler(event: Event) {
     "2": ["sys_1", "sys_3", "sys_4", "sys_5", "sys_6", "sys_10"],
     "3": ["sys_1", "sys_3", "sys_5", "sys_8"],
     "4": ["sys_1", "sys_3", "sys_5", "sys_9"],
-    "5": ["sys_1", "sys_3", "sys_5", "sys_6", "sys_7", "sys_13"]
+    "5": ["sys_1", "sys_3", "sys_5", "sys_6", "sys_7", "sys_11"]
   };
 
   const subSystemCheckedItems: { [key: string]: string[] } = {
