@@ -5,7 +5,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_1",
     name: "سیستم حسابداری",
-    price: "99000000",
+    price: "130000000",
     checked: true,
     pre: [],
     preSub: [],
@@ -18,7 +18,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_2",
     name: "سیستم دارایی ثابت",
-    price: "167000000",
+    price: "217000000",
     checked: false,
     pre: [],
     preSub: [],
@@ -31,7 +31,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_3",
     name: "سیستم دریافت و پرداخت",
-    price: "156000000",
+    price: "205000000",
     checked: false,
     post: ["sys_6","sys_8", "sys_11"],
     pre: [],
@@ -44,7 +44,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_4",
     name: "سیستم تامین کنندگان و انبار تولیدی",
-    price: "210000000",
+    price: "275000000",
     checked: false,
     pre: [],
     preSub: [],
@@ -57,7 +57,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_5",
     name: "سیستم حقوق و دستمزد",
-    price: "204000000",
+    price: "265000000",
     checked: false,
     pre: [],
     preSub: [],
@@ -70,7 +70,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_6",
     name: "سیستم مشتریان و فروش",
-    price: "210000000",
+    price: "275000000",
     checked: false,
     post: ["sys_11", "sys_15"],
     pre: ["sys_3"],
@@ -83,7 +83,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_7",
     name: "سیستم تامین کنندگان و انبار بازرگانی",
-    price: "185000000",
+    price: "240000000",
     checked: false,
     post: ["sys_6","sys_11", "sys_14"],
     pre: [],
@@ -103,7 +103,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_8",
     name: "سیستم فروش خدماتی",
-    price: "195000000",
+    price: "255000000",
     checked: false,
     pre: ["sys_3"],
     preSub: [],
@@ -116,7 +116,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_9",
     name: "حسابداری پیمانکاری",
-    price: "235000000",
+    price: "305000000",
     checked: false,
     post: ["sys_15"],
     pre: [],
@@ -129,7 +129,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_10",
     name: "سیستم تولید",
-    price: "203000000",
+    price: "265000000",
     checked: false,
     pre: ["sys_4"],
     preSub: [],
@@ -142,7 +142,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_11",
     name: "سیستم سفارش گیری",
-    price: "252000000",
+    price: "328000000",
     checked: false,
     pre: ["sys_3","sys_6"],
     preSub: ["subSys_2"],
@@ -160,7 +160,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_12",
     name: "سیستم پخش سرد",
-    price: "405000000",
+    price: "527000000",
     checked: false,
     pre: ["sys_11"],
 
@@ -174,7 +174,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_13",
     name: "سیستم پخش گرم",
-    price: "405000000",
+    price: "527000000",
     checked: false,
     pre: ["sys_11"],
 
@@ -188,7 +188,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_14",
     name: "سیستم سفارشات و خرید خارجی",
-    price: "240000000",
+    price: "312000000",
     checked: false,
     pre: [],
     preSub: [],
@@ -203,7 +203,7 @@ export let systemsList: CheckboxItem[] = [
   {
     id: "sys_15",
     name: "سیستم سامانه مؤدیان",
-    price: "99000000",
+    price: "130000000",
     checked: false,
     pre: [],
     preSub: [],
