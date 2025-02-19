@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: iranyekan;
+  src: url(iranyekanwebregular.woff2);
+}
+
+.highlightYa{
+  color: red;
+}

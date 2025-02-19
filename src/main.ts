@@ -6,7 +6,7 @@ import { selectSystem } from "./selectSystem";
 import { addOptionsToSharedCompaniesSelect } from "./sharedCompaniesSelect";
 import { subSystemsList } from "./state/subSystemsList";
 import { systemsList } from "./state/systemsList";
-import "./style.css";
+import "./styles.css";
 import { addOptionsToUsersCountSelect } from "./usersCountSelect";
 
 document.addEventListener("DOMContentLoaded", () => {
