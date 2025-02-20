@@ -44,7 +44,7 @@ export function addOptionsToMobileUsersSelect() {
 }
 
 export function mobileUsersSelectOnChangeHandler(event: Event) {
-  const price = 30000000;
+  const price = 40000000;
   const value = (event.target as HTMLInputElement).value;
   setSelectPrice("mobileUserPrice", Number(value) * price);
   calculatePrice();

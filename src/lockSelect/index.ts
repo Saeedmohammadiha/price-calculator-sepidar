@@ -30,7 +30,7 @@ export function addOptionsToLockSelect() {
 }
 
 export function lockSelectOnChangeHandler(event: Event) {
-  const price = 60000000;
+  const price = 78000000;
   const value = (event.target as HTMLInputElement).value;
   setSelectPrice("lockPrice", Number(value) * price);
   calculatePrice()
