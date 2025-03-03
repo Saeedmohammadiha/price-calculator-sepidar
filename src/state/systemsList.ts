@@ -213,6 +213,19 @@ export let systemsList: CheckboxItem[] = [
     postSub: [],
     textForModal: ["سیستم مشتریان و فروش یا فروش خدماتی یا حسابداری پیمانکاری"],
   },
+  {
+    id: "sys_16",
+    name: "سیستم تدارکات و خرید داخلی",
+    price: "190000000",
+    checked: false,
+    pre: [],
+    preSub: [],
+    preOR: ["sys_2", "sys_4", "sys_7", "sys_8"],
+    preSubOR: [],
+    post: [],
+    postSub: [],
+    textForModal: ["سیستم دارایی ثابت یا سیستم تامین کنندگان و انبار تولیدی یا سیستم تامین کنندگان و انبار بازرگانی یا سیستم فروش خدماتی"],
+  },
 ];
 
 export function updateSystemsList(updatedItem: CheckboxItem) {
