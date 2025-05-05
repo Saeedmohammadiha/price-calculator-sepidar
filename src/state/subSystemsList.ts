@@ -5,7 +5,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_1",
     name: "زیر سیستم ارزی",
-    price: "117000000",
+    price: "140000000",
     checked: false,
     post: [],
     pre: [],
@@ -18,7 +18,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_2",
     name: "فروش پیشرفته",
-    price: "150000000",
+    price: "175000000",
     checked: false,
     post: ["sys_11","sys_12","sys_13"],
     pre: [],
@@ -31,7 +31,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_3",
     name: "زیر سیستم توزین",
-    price: "77000000",
+    price: "90000000",
     checked: false,
     post: [],
     pre: [],
@@ -46,7 +46,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_4",
     name: "زیر سیستم دو زبانه",
-    price: "161000000",
+    price: "185000000",
     checked: false,
     post: [],
     pre: [],
@@ -59,7 +59,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_5",
     name: "مدیریت پیام",
-    price: "35000000",
+    price: "40000000",
     checked: false,
     post: [],
     pre: [],
@@ -72,7 +72,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_6",
     name: "زیر سیستم ردیابی",
-    price: "59000000",
+    price: "70000000",
     checked: false,
     post: [],
     pre: [],
@@ -87,7 +87,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_7",
     name: "زیر سیستم دو واحدی",
-    price: "78000000",
+    price: "90000000",
     checked: false,
     post: [],
     pre: [],
@@ -102,7 +102,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_8",
     name: "تبدیل انبار بازرگانی به تولیدی",
-    price: "72000000",
+    price: "80000000",
     checked: false,
     post: [],
     pre: ["sys_7"],
@@ -115,7 +115,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_9",
     name: "زیر سیستم موبایل و تبلت سفارش گیری",
-    price: "164000000",
+    price: "190000000",
     checked: false,
     post: [],
     pre: ["sys_11"],
@@ -128,7 +128,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_10",
     name: "وب سرویس فروشگاه اینترنتی",
-    price: "345000000",
+    price: "350000000",
     checked: false,
     post: [],
     pre: [],
@@ -141,7 +141,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_11",
     name: "زیر سیستم مدیریت تنخواه گردان",
-    price: "55000000",
+    price: "65000000",
     checked: false,
     post: [],
     pre: ["sys_3"],
@@ -154,7 +154,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_12",
     name: "زیر سیستم گزارش‌های مدیریتی",
-    price: "72000000",
+    price: "90000000",
     checked: false,
     post: [],
     pre: [],
@@ -169,7 +169,7 @@ export let subSystemsList: CheckboxItem[] = [
   {
     id: "subSys_13",
     name: "تبدیل فروش خدماتی به مشتریان و فروش",
-    price: "24700000",
+    price: "30000000",
     checked: false,
     post: [],
     pre: ["sys_3"],

@@ -31,7 +31,7 @@ export function addOptionsToUsersCountSelect() {
 }
 
 export function usersCountSelectOnChangeHandler(event: Event) {
-  const price = 78000000;
+  const price = 80000000;
   const value = (event.target as HTMLInputElement).value;
   setSelectPrice("userCountPrice", Number(value) * price);
   calculatePrice()
