@@ -30,12 +30,14 @@ export function addOptionsToLockSelect() {
 }
 
 export function lockSelectOnChangeHandler(event: Event) {
-  const price = 90000000;
   const value = (event.target as HTMLInputElement).value;
-  setSelectPrice("lockPrice", Number(value) * price);
-  calculatePrice()
-  
-  document.getElementById("lockSelectPrice")!.innerHTML = (
-    formatPrice(Number(value) * price)
+  setSelectPrice(
+    "lockPrice",
+    Number(value) * window.ourData.lockSelectPerPrice
+  );
+  calculatePrice();
+
+  document.getElementById("lockSelectPrice")!.innerHTML = formatPrice(
+    Number(value) * window.ourData.lockSelectPerPrice
   ).toString();
 }

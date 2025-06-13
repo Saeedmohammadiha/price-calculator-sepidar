@@ -30,7 +30,7 @@ export function addOptionsToMobileUsersSelect() {
   const select = document.getElementById(
     "mobileUsersSelect"
   ) as HTMLSelectElement;
-  
+
   select.disabled = true;
 
   values.map((value) => {
@@ -44,12 +44,14 @@ export function addOptionsToMobileUsersSelect() {
 }
 
 export function mobileUsersSelectOnChangeHandler(event: Event) {
-  const price = 50000000;
   const value = (event.target as HTMLInputElement).value;
-  setSelectPrice("mobileUserPrice", Number(value) * price);
+  setSelectPrice(
+    "mobileUserPrice",
+    Number(value) * window.ourData.mobileUsersSelectPrice
+  );
   calculatePrice();
 
-  document.getElementById("mobileUsersSelectPrice")!.innerHTML = (
-    formatPrice(Number(value) * price)
+  document.getElementById("mobileUsersSelectPrice")!.innerHTML = formatPrice(
+    Number(value) * window.ourData.mobileUsersSelectPrice
   ).toString();
 }

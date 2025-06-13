@@ -31,12 +31,14 @@ export function addOptionsToUsersCountSelect() {
 }
 
 export function usersCountSelectOnChangeHandler(event: Event) {
-  const price = 80000000;
   const value = (event.target as HTMLInputElement).value;
-  setSelectPrice("userCountPrice", Number(value) * price);
-  calculatePrice()
-  
-  document.getElementById("usersCountSelectPrice")!.innerHTML = (
-    formatPrice(Number(value) * price)
+  setSelectPrice(
+    "userCountPrice",
+    Number(value) * window.ourData.usersCountSelectPrice
+  );
+  calculatePrice();
+
+  document.getElementById("usersCountSelectPrice")!.innerHTML = formatPrice(
+    Number(value) * window.ourData.usersCountSelectPrice
   ).toString();
 }
