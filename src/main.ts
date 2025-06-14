@@ -40,7 +40,7 @@ type HtmlData = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("./data.json")
+  fetch("./data-sepidar.json")
     .then((res) => {
       return res.json();
     })
