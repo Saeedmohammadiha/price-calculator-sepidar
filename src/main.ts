@@ -30,6 +30,7 @@ declare global {
       htmlDataMorePc: HtmlData;
       htmlDataInstallService: HtmlData;
       htmlDataHourlyService: HtmlData;
+      tax: number
     };
   }
 }

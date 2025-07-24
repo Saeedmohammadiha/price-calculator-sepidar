@@ -166,5 +166,6 @@
   "htmlDataHourlyService": {
     "lable": "خدمات در محل ساعتی ",
     "price": "10،000،000"
-  }
+  },
+  "tax": 20
 }
