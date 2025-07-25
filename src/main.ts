@@ -31,6 +31,8 @@ declare global {
       htmlDataInstallService: HtmlData;
       htmlDataHourlyService: HtmlData;
       tax: number
+      discount: number
+      discountHC: number
     };
   }
 }

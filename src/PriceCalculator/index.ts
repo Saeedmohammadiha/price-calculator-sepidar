@@ -34,17 +34,17 @@ function calculateHotAndColdDiscount() {
   const hot = systemsList.find((item) => item.id === "sys_13");
 
   if (!(cold?.checked && hot?.checked)) return 0;
-    const tax = window?.ourData?.tax ? (window?.ourData?.tax / 100) : 0.1  
+    const discount = window?.ourData?.discountHC ? (window?.ourData?.discountHC / 100) : 0  
 
-  return parseInt(hot.price) * tax;
+  return parseInt(hot.price) * discount;
 }
 
 function calculateDiscount(totalPrice: number) {
   const filtered = systemsList.filter((item) => item.checked);
   const isThereAnotherSystem = filtered.length > 1;
   if (isThereAnotherSystem) {
-    const tax = window?.ourData?.tax ? (window?.ourData?.tax / 100) : 0.1  
-    return totalPrice * tax;
+    const discount = window?.ourData?.discount ? (window?.ourData?.discount / 100) : 0  
+    return totalPrice * discount;
   }
   return 0;
 }
