@@ -43,7 +43,7 @@ type HtmlData = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("./data-sepidar.json")
+  fetch("/assets/data-sepidar.json")
     .then((res) => {
       return res.json();
     })
